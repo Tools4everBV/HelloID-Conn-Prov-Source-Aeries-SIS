@@ -1,0 +1,46 @@
+[
+  {
+    "key": "Baseuri",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "URL",
+      "placeholder": "https://aeries.customer.org/Parent",
+      "description": "",
+      "required": true
+    }
+  },
+  {
+    "key": "certificateKey",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "Certificate Key",
+      "type": "password",
+      "placeholder": "",
+      "required": true
+    }
+  },
+  {
+    "key": "IncludeCodes",
+    "type": "input",
+    "defaultValue": "",
+    "templateOptions": {
+      "label": "Included Status Codes",
+      "placeholder": "",
+      "description": "Status codes to include in the import",
+      "required": false
+    }
+  },
+  {
+    "key": "ExcludeCodes",
+    "type": "input",
+    "defaultValue": "0,999",
+    "templateOptions": {
+      "label": "Excluded School Codes",
+      "placeholder": "",
+      "description": "School codes to exclude from the import",
+      "required": false
+    }
+  }
+]
