@@ -1,14 +1,12 @@
-## Settings ##
-$Baseuri = "{CUSTOMER URL HERE}";
-$CertificateKey = "{CERTIFICATE KEY HERE}";
-
+#2020-11-04
+$config = ConvertFrom-Json $configuration;
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 $headers = @{
-                "AERIES-CERT" = $CertificateKey;
+                "AERIES-CERT" = $config.certificateKey;
 };
  
-$schools = Invoke-RestMethod ("$($Baseuri)/api/v3/schools/") -Method 'GET' -Headers $headers
+$schools = Invoke-RestMethod ("$($config.Baseuri)/api/v3/schools/") -Method 'GET' -Headers $headers
  
 foreach($school in $schools)
 {
