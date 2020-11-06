@@ -1,17 +1,14 @@
 ## Settings ##
-$Baseuri = "{CUSTOMER URL HERE}";
-$CertificateKey = "{CERTIFICATE KEY HERE}";
-$IncludeStatusCodes = @("");
-$ExcludeSchoolCodes = @("0","999");
+$config = ConvertFrom-Json $configuration;
+$IncludeStatusCodes = $config.IncludeCodes.split(',')
+$ExcludeSchoolCodes = $config.ExcludeCodes.split(',')
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 $headers = @{
-                "AERIES-CERT" = $CertificateKey;
+                "AERIES-CERT" = $config.certificateKey;
 };
  
-$schools = Invoke-RestMethod ("$($Baseuri)/api/v3/schools/") -Method 'GET' -Headers $headers
- 
- 
+$schools = Invoke-RestMethod ("$($config.Baseuri)/api/v3/schools/") -Method 'GET' -Headers $headers
  
 $students = [System.Collections.ArrayList]@{};
 $studentsExtended = [System.Collections.ArrayList]@{};
@@ -20,10 +17,10 @@ $studentsExtended = [System.Collections.ArrayList]@{};
 foreach($school in $schools)
 {
    if($ExcludeSchoolCodes -contains $school.SchoolCode) { Write-Verbose -Verbose "Excluding School Code $($school.SchoolCode)"; continue; }
-   $SchoolUri = "$($Baseuri)/api/v4/schools/$($school.SchoolCode)";
+   $SchoolUri = "$($config.Baseuri)/api/v4/schools/$($school.SchoolCode)";
    Write-Verbose "$($SchoolUri)" -Verbose
    $schoolStudents = Invoke-RestMethod ("$($SchoolUri)/students") -Method 'GET' -Headers $headers
-   [void]$students.AddRange($schoolStudents);
+   if($schoolStudents -is [System.Array]) { [void]$students.AddRange($schoolStudents); } else { [void]$students.Add($schoolStudents);}
 }
  
 $activeStudents = $students.Where({$IncludeStatusCodes -contains $_.InactiveStatusCode})
