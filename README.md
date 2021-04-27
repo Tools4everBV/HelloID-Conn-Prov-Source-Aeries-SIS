@@ -20,3 +20,6 @@ https://support.aeries.com/support/solutions/articles/14000077926-aeries-api-ful
     - Schools
     - Terms
     - Users
+
+# HelloID Docs
+The official HelloID documentation can be found at: https://docs.helloid.com/
