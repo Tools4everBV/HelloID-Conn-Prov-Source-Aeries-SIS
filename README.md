@@ -14,6 +14,7 @@ https://support.aeries.com/support/solutions/articles/14000077926-aeries-api-ful
 
 - Click Add to create a record for a 3rd party product.
 - Enter "HelloID" for Product Name, Status should be Active
+- Make sure Type is blank (NOT OneRoster or Student App)
 - Take note of the certificate key
 - Setup permissions
   - Student Data
