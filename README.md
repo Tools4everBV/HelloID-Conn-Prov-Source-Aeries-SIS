@@ -5,9 +5,11 @@
 | This repository contains the connector and configuration code only. The implementer is responsible to acquire the connection details such as username, password, certificate, etc. You might even need to sign a contract or agreement with the supplier before implementing this connector. Please contact the client's application manager to coordinate the connector requirements.       |
 
 <br />
+<p align="center">
+<img src="https://github.com/Tools4everBV/HelloID-Conn-Prov-Source-Aeries-SIS-Students/assets/17279802/4a259a9d-8cfa-473c-84e6-fc147f5e8e4e">
+</p>
 
 HelloID Provisioning Source Connector for Aeries SIS API
-
 https://support.aeries.com/support/solutions/articles/14000077926-aeries-api-full-documentation
 
 # Setup Aeries API Set up
