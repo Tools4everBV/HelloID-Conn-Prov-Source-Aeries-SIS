@@ -6,7 +6,7 @@
 
 <br />
 <p align="center">
-<img src="https://github.com/Tools4everBV/HelloID-Conn-Prov-Source-Aeries-SIS-Students/assets/17279802/4a259a9d-8cfa-473c-84e6-fc147f5e8e4e">
+  <img src="https://www.tools4ever.nl/connector-logos/aeriessis-logo.png">
 </p>
 
 HelloID Provisioning Source Connector for Aeries SIS API
